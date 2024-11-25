@@ -1,17 +1,24 @@
-import React from 'react';
-import AppHeader from './components/AppHeader';
-import AppMain from './components/AppMain';
-import './index.css'
+import { BrowserRouter, Routes, Route } from "react-router"
+import Home from "./pages/Home"
+import Posts from "./pages/Posts"
+import About from "./pages/About"
+import Layout from "./pages/Layout"
 
-import './App.css';
+function App() {
 
-const App = () => {
   return (
-    <div className="container">
-      <AppHeader />
-      <AppMain />
-    </div>
-  );
-};
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/about" element={<About />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
+}
 
-export default App;
+export default App

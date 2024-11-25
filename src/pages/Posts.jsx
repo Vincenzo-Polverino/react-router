@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function AppMain() {
+export default function Posts() {
     const [postData, setPostData] = useState([])
     const [newPost, setNewPost] = useState({
         title: '',
@@ -76,7 +76,8 @@ function AppMain() {
     };
 
     return (
-        <main>
+        <>
+            <h1>Posts</h1>
             <div id="off-canvas-form" popover="true">
                 <div className="d-flex justify-content-between align-items-center">
                     <h3>Aggiungi un nuovo post</h3>
@@ -170,8 +171,6 @@ function AppMain() {
                     </li>
                 )) : <p>None</p>}
             </ul>
-        </main>
-    );
-};
-
-export default AppMain;
+        </>
+    )
+}

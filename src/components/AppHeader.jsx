@@ -1,9 +1,11 @@
-import React from 'react';
+import MainMenu from "./MainManu"
 
-const AppHeader = () => {
+export default function AppHeader() {
+
     return (
-        <header>
+        <>
             <h1>React Blog Form</h1>
+            <MainMenu />
             <div className="input-group mb-3">
                 <div className='d-flex'>
                     <button className="btn" type="button" popovertarget="off-canvas-form">
@@ -11,8 +13,8 @@ const AppHeader = () => {
                     </button>
                 </div>
             </div>
-        </header>
-    );
-};
 
-export default AppHeader;
+        </>
+
+    )
+}
