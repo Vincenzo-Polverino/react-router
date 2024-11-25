@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Posts() {
+
     const [postData, setPostData] = useState([])
     const [newPost, setNewPost] = useState({
         title: '',
@@ -77,7 +78,16 @@ export default function Posts() {
 
     return (
         <>
-            <h1>Posts</h1>
+
+
+            <div className="input-group mb-3 d-flex align-items-center">
+                <h2>Posts</h2>
+                <div className='d-flex'>
+                    <button className="btn" type="button" popovertarget="off-canvas-form">
+                        Aggiungi
+                    </button>
+                </div>
+            </div>
             <div id="off-canvas-form" popover="true">
                 <div className="d-flex justify-content-between align-items-center">
                     <h3>Aggiungi un nuovo post</h3>

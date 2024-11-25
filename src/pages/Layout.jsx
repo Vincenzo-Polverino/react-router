@@ -5,11 +5,11 @@ export default function Layout() {
 
     return (
         <>
-            <div className="container">
-                <header>
-                    <AppHeader />
-                </header>
+            <header className="shadow-sm p-2 mb-5">
+                <AppHeader />
+            </header>
 
+            <div className="container">
                 <main>
                     <Outlet />
                 </main>
