@@ -54,14 +54,14 @@ export default function Posts() {
             });
     };
 
-    const handleDelete = (index) => {
+    const handleDelete = (slug) => {
 
-        fetch(`http://localhost:3000/posts/${postData[index].id}`, {
+        fetch(`http://localhost:3000/posts/${postData[slug].id}`, {
             method: 'DELETE',
         })
             .then(() => {
 
-                setPostData(postData.filter((_, i) => i !== index));
+                setPostData(postData.filter((_, i) => i !== slug));
             })
             .catch((error) => {
                 console.error('Errore nell\'eliminare il post', error);
@@ -164,9 +164,9 @@ export default function Posts() {
 
             <ul className="list-group">
 
-                {postData.length ? postData.map((post, index) => (
+                {postData.length ? postData.map((post, slug) => (
 
-                    <li key={index} className="list-group-item d-flex justify-content-between postCard">
+                    <li key={slug} className="list-group-item d-flex justify-content-between postCard">
                         <Link to={`/posts/${post.slug}`}>
                             <div>
                                 <img src={`http://localhost:3000/imgs/posts/${post.image}`} alt={post.title} />
@@ -180,13 +180,13 @@ export default function Posts() {
 
 
                         <div>
-                            <button className="btn trash" onClick={() => handleDelete(index)}>
+                            <button className="btn trash" onClick={() => handleDelete(slug)}>
                                 <i className="bi bi-trash"> </i>
                             </button>
                         </div>
                     </li>
 
-                )) : <p>None</p>}
+                )) : <p>Nessun post Trovato</p>}
             </ul>
         </>
     )
