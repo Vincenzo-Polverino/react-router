@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 export default function Posts() {
 
@@ -173,6 +174,9 @@ export default function Posts() {
                             <p><strong>Tags: </strong>{post.tags && post.tags.length ? post.tags.join(', ') : 'Nessun tag'}</p>
 
                         </div>
+                        <Link to={`/posts/${post.slug}`}>
+                            <button className="btn">Dettagli</button>
+                        </Link>
                         <div>
                             <button className="btn trash" onClick={() => handleDelete(index)}>
                                 <i className="bi bi-trash"> </i>
