@@ -23,7 +23,7 @@ export default function PostDetail() {
     }
 
     return (
-        <div>
+        <div className="card_detail container">
             <h1>{post.title}</h1>
             <img src={`http://localhost:3000/imgs/posts/${post.image}`} alt={post.title} />
             <p>{post.content}</p>

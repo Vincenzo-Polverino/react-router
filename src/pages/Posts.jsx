@@ -165,24 +165,27 @@ export default function Posts() {
             <ul className="list-group">
 
                 {postData.length ? postData.map((post, index) => (
-                    <li key={index} className="list-group-item d-flex justify-content-between postCard">
-                        <div>
-                            <img src={`http://localhost:3000/imgs/posts/${post.image}`} alt={post.title} />
-                            <h5>{post.title}</h5>
-                            <p>{post.content}</p>
-                            <hr />
-                            <p><strong>Tags: </strong>{post.tags && post.tags.length ? post.tags.join(', ') : 'Nessun tag'}</p>
 
-                        </div>
+                    <li key={index} className="list-group-item d-flex justify-content-between postCard">
                         <Link to={`/posts/${post.slug}`}>
-                            <button className="btn">Dettagli</button>
+                            <div>
+                                <img src={`http://localhost:3000/imgs/posts/${post.image}`} alt={post.title} />
+                                <h5>{post.title}</h5>
+                                <p>{post.content}</p>
+                                <hr />
+                                <p><strong>Tags: </strong>{post.tags && post.tags.length ? post.tags.join(', ') : 'Nessun tag'}</p>
+
+                            </div>
                         </Link>
+
+
                         <div>
                             <button className="btn trash" onClick={() => handleDelete(index)}>
                                 <i className="bi bi-trash"> </i>
                             </button>
                         </div>
                     </li>
+
                 )) : <p>None</p>}
             </ul>
         </>
